@@ -5,29 +5,42 @@ import Portfolio from "../components/portfolio/Portfolio";
 import WorkTogether from "../components/workTogether/WorkTogether";
 import Profession from "../components/profession/Profession";
 import Contact from "../components/contact/Contact";
-import "../../index.css";
 
 const Home = () => {
   return (
     <div className="relative">
-      <div className="introduction-profile-background">
+      {/* Hero + Profile */}
+      <div className="hero-bg">
         <div className="content">
           <Introduction />
           <Profile />
         </div>
       </div>
-      <div className="bg-soft-white pt-30">
+
+      {/* Workflow */}
+      <div className="section-gradient pt-30">
         <WorkProcess />
       </div>
-      <Portfolio />
-      <div className="bg-gray-900">
+
+      {/* Projects */}
+      <div className="section-dark">
+        <Portfolio />
+      </div>
+
+      {/* CTA */}
+      <div className="cta-bg">
         <WorkTogether />
       </div>
-      
-      <div className="bg-soft-white">
+
+      {/* Services */}
+      <div className="section-gradient">
         <Profession />
       </div>
-      <Contact />
+
+      {/* Contact */}
+      <div className="section-dark">
+        <Contact />
+      </div>
     </div>
   );
 };

@@ -1,18 +1,17 @@
-const InformationSummary = ({ item }) => {
+const InformationSummary = ({ item, index }) => {
   return (
-    <div className={`bg-[#F6EBFE] text-center`}>
-      <div className="w-auto h-auto mx-2 sm:mx-4 my-5 xxs:my-5 sm:my-[17px]">
-        <p
-          className={`text-[16px] xxs:text-[18px] sm:text-[32px] font-semibold text-gray-700`}
-        >
-          {item.description}
-        </p>
-        <p
-          className={`text-[8px] xxs:text-[9px] sm:text-[16px] font-normal px-[0.90rem] sm:px-[1rem] text-wrap text-gray-500`}
-        >
-          {item.title}
-        </p>
-      </div>
+    <div
+      className={`glass-card p-4 sm:p-5 text-center group scroll-reveal stagger-${index + 1}`}
+    >
+      <p className="text-2xl xxs:text-3xl sm:text-4xl font-bold font-display text-gradient">
+        {item.description}
+      </p>
+      {item.suffix && (
+        <p className="text-xs text-text-muted mt-1">{item.suffix}</p>
+      )}
+      <p className="text-xs xxs:text-sm sm:text-base text-text-secondary mt-2 font-medium">
+        {item.title}
+      </p>
     </div>
   );
 };

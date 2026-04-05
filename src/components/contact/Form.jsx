@@ -1,6 +1,6 @@
 const telegramSVG = (
   <svg
-    className="w-4 md:w-6 aspect-square"
+    className="w-4 md:w-5 aspect-square"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -12,51 +12,65 @@ const telegramSVG = (
   </svg>
 );
 
-const commonClass =
-  "input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-[#E6E8EB] w-full rounded-none px-0";
-
 const Form = () => {
   return (
     <div>
-      <p className="text-[12px] xs:text-[14px] max-lg:text-center sm:text-lg font-normal text-soft-dark">
+      <p className="text-text-secondary text-sm sm:text-base max-lg:text-center mb-6">
         I'm always open to discussing product design work or partnership opportunities.
       </p>
 
-      <div className="mx-2">
-        <form
-          action="https://formspree.io/f/xldjkbnq"
-          method="POST"
-          className="flex flex-col gap-4 mt-4"
+      <form
+        action="https://formspree.io/f/xldjkbnq"
+        method="POST"
+        className="flex flex-col gap-5"
+      >
+        <div className="grid sm:grid-cols-2 gap-5">
+          <input
+            name="name"
+            placeholder="Your Name *"
+            className="input-dark"
+            required
+          />
+          <input
+            name="email"
+            type="email"
+            placeholder="Your Email *"
+            className="input-dark"
+            required
+          />
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-5">
+          <input
+            name="location"
+            placeholder="Location *"
+            className="input-dark"
+            required
+          />
+          <input
+            name="subject"
+            placeholder="Subject *"
+            className="input-dark"
+            required
+          />
+        </div>
+
+        <textarea
+          name="message"
+          placeholder="Your Message *"
+          rows={4}
+          className="input-dark resize-none"
+          required
+          style={{ borderBottom: "2px solid rgba(255,255,255,0.1)" }}
+        />
+
+        <button
+          type="submit"
+          className="btn btn-primary rounded-xl mt-4 text-sm font-semibold w-fit max-lg:mx-auto px-8 py-3 inline-flex items-center gap-3"
         >
-          <input name="name" placeholder="Name*" className={commonClass} required />
-          <input name="email" type="email" placeholder="Email*" className={commonClass} required />
-          <input name="location" placeholder="Location*" className={commonClass} required />
-
-          <div className="flex max-xs:flex-col max-xs:gap-4">
-            <input
-              name="budget"
-              placeholder="Budget*"
-              className={`${commonClass} xs:w-[50%] me-5`}
-              required
-            />
-            <input
-              name="subject"
-              placeholder="Subject*"
-              className={commonClass}
-              required
-            />
-          </div>
-
-          <input name="message" placeholder="Message*" className={commonClass} required />
-
-          <button
-            type="submit"
-            className="btn gap-3 max-lg:mx-auto btn-primary rounded-sm mt-5 text-[13px] md:text-[16px] w-fit font-semibold lg:mt-12.5 p-2 md:px-4"
-          >
-            Submit {telegramSVG}
-          </button>
-        </form>
-      </div>
+          Send Message {telegramSVG}
+        </button>
+      </form>
     </div>
   );
 };

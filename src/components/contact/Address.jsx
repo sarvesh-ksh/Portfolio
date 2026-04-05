@@ -1,35 +1,27 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 
-const Address = ({ item }) => {
-  const [hover, setHover] = useState(false);
-
+const Address = ({ item, index }) => {
   return (
     <div
-      className="max-w-84 p-3 md:p-3.5 lg:p-6 flex rounded-[10px] bg-white hover:shadow-[0_0_37px_5px_rgba(0,0,0,0.1)] duration-300 cursor-pointer max-sm:mx-auto"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      className={`group glass-card p-4 md:p-5 flex items-center gap-4 cursor-default scroll-reveal stagger-${index + 1}`}
     >
-      {/* ICON BOX */}
+      {/* Icon */}
       <div
-        className={`h-10 md:h-12 aspect-square center rounded-[4px] transition-all ${
-          hover ? "bg-picto-primary" : "bg-[#EDD8FF80]"
-        }`}
+        className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-xl
+          bg-white/5 group-hover:bg-accent/20 transition-all duration-300"
       >
         <FontAwesomeIcon
           icon={item?.icon}
-          className={`text-lg md:text-xl transition-all ${
-            hover ? "text-white" : "text-picto-primary"
-          }`}
+          className="text-base text-text-muted group-hover:text-accent transition-all duration-300"
         />
       </div>
 
-      {/* TEXT */}
-      <div className="ms-3.5">
-        <p className="text-[12px] md:text-[14px] text-[#424E60]">
+      {/* Text */}
+      <div>
+        <p className="text-xs text-text-muted uppercase tracking-wider font-medium">
           {item?.title}
         </p>
-        <p className="text-[14px] md:text-[16px] text-[#132238] font-medium">
+        <p className="text-sm md:text-base text-text-primary font-medium mt-0.5">
           {item?.description}
         </p>
       </div>

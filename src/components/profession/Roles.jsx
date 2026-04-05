@@ -1,27 +1,24 @@
-import { useState } from "react";
-
-const Roles = ({ role }) => {
-  const [isHover, setIsHover] = useState(false);
-
+const Roles = ({ role, index }) => {
   return (
     <div
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-      className="relative my-6 p-4 xs:p-8 bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 flex overflow-hidden"
+      className={`group relative glass-card my-4 p-5 sm:p-7 flex items-start gap-4 overflow-hidden scroll-reveal stagger-${index + 1}`}
     >
-      {/* Left hover bar */}
+      {/* Hover gradient border left */}
       <span
-        className={`absolute left-0 top-0 h-full bg-picto-primary transition-all duration-300 ${
-          isHover ? "w-[5px]" : "w-0"
-        }`}
+        className="absolute left-0 top-0 h-full w-0 group-hover:w-1 bg-gradient-to-b from-accent to-cyan-400 transition-all duration-400 rounded-r"
       />
 
+      {/* Icon */}
+      <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-white/5 text-2xl group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+        {role.icon}
+      </div>
+
+      {/* Text */}
       <div>
-        <p className="text-xl sm:text-2xl font-semibold text-gray-900 pb-3">
+        <p className="text-lg sm:text-xl font-display font-bold text-text-primary group-hover:text-accent transition-colors duration-300">
           {role.title}
         </p>
-
-        <p className="text-[13px] sm:text-[16px] text-gray-700">
+        <p className="mt-2 text-sm text-text-secondary leading-relaxed">
           {role.description}
         </p>
       </div>

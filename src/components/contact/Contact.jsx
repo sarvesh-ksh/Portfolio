@@ -6,6 +6,7 @@ import {
 import Address from "./Address";
 import Form from "./Form";
 import SocialMedia from "../common/socialMedia/SocialMedia";
+import useScrollReveal from "../../hooks/useScrollReveal";
 
 const addressData = [
   {
@@ -26,42 +27,42 @@ const addressData = [
 ];
 
 const Contact = () => {
+  const sectionRef = useScrollReveal();
+
   return (
-    <div className="relative -bottom-15 -mt-15 z-10 px-2">
+    <div ref={sectionRef} className="px-4 py-16 md:py-24">
       <div
-        className="content p-4 md:p-10 lg:p-22 bg-white rounded-2xl shadow-[0_0_90px_9px_rgba(0,0,0,0.1)]"
+        className="content glass-card p-6 md:p-10 lg:p-16 xl:p-20 rounded-3xl scroll-reveal-scale"
         id="contact"
       >
-        <div className="flex flex-col-reverse lg:flex-row lg:gap-5 xl:gap-25.75 justify-between">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <p className="section-title">
+            Let's <span className="text-gradient">Connect</span>
+          </p>
+          <p className="text-text-secondary text-sm sm:text-base mt-4 max-w-lg mx-auto">
+            Feel free to reach out — I'm open to discussing projects,
+            collaborations, or anything tech-related.
+          </p>
+        </div>
 
-          {/* LEFT SIDE */}
-          <div>
-            <div>
-              <p className="text-[35px] max-lg:hidden font-semibold text-[#132238]">
-                Let's Connect
-              </p>
-              <p className="text-[12px] xs:text-[14px] sm:text-lg md:text-lg max-lg:text-center pt-4 text-soft-dark">
-                Feel free to reach out — I'm open to discussing projects,
-                collaborations, or anything tech-related.
-              </p>
-            </div>
-
-            <div className="my-8.75 sm:max-lg:flex justify-between items-center">
+        <div className="flex flex-col-reverse lg:flex-row lg:gap-12 xl:gap-20 justify-between">
+          {/* LEFT SIDE — Info */}
+          <div className="scroll-reveal-left lg:max-w-sm">
+            <div className="space-y-4 my-8 lg:my-0">
               {addressData.map((item, index) => (
-                <Address item={item} key={index} />
+                <Address item={item} key={index} index={index} />
               ))}
             </div>
 
-            <div className="w-full max-lg:text-center max-md:mb-4">
+            <div className="mt-8 max-lg:text-center max-md:mb-6">
+              <p className="text-text-muted text-xs mb-3 uppercase tracking-wider font-semibold">Follow Me</p>
               <SocialMedia />
             </div>
           </div>
 
-          {/* FORM SIDE */}
-          <div className="w-full overflow-y-scroll py-6.5">
-            <p className="text-xl mb-2 xs:text-2xl sm:text-2xl md:text-[38px] font-semibold text-[#132238] lg:hidden text-center">
-              Let's Connect
-            </p>
+          {/* RIGHT SIDE — Form */}
+          <div className="w-full scroll-reveal-right">
             <Form />
           </div>
         </div>
