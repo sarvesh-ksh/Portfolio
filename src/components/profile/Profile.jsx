@@ -45,7 +45,7 @@ const Profile = () => {
           {/* Profile Text */}
           <div className="w-full lg:max-w-xl" style={{ transform: "translateZ(20px)" }}>
             <h2 className="font-display text-2xl xxs:text-3xl sm:text-4xl lg:text-[38px] max-md:text-center font-bold text-text-primary mb-4 leading-tight">
-              Professional <span className="text-gradient">Web Developer</span> & Data Engineer
+              Professional <span className="text-gradient">Web Developer</span> & Data Analyst/Scientist
             </h2>
 
             <div className="text-xs xs:text-base lg:text-lg font-normal max-md:text-center text-text-secondary space-y-3">

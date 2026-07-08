@@ -7,28 +7,21 @@ const rolesData = [
     icon: "🌐",
     title: "Web Developer",
     description:
-      "Created fast, responsive and modern web applications using clean and scalable code.",
+      "Building fast, responsive, and modern web applications using clean, scalable code and modern framework integration.",
   },
   {
     id: 2,
-    icon: "📈",
-    title: "Data Engineer",
+    icon: "🔬",
+    title: "Data Scientist",
     description:
-      "I worked with data, built models and created smart solutions that help in better decisions.",
+      "Applying statistical techniques, performing exploratory data analysis, and building machine learning models using Python, Pandas, and NumPy.",
   },
   {
     id: 3,
-    icon: "❄️",
-    title: "Snowflake Developer",
+    icon: "📊",
+    title: "Data Analyst",
     description:
-      "I design and implement data solutions using Snowflake, ensuring efficient data storage and retrieval for analytics and reporting.",
-  },
-  {
-    id: 4,
-    icon: "🔄",
-    title: "DBT Developer",
-    description:
-      "I build robust data pipelines and transformations using DBT to ensure data quality and reliability.",
+      "Transforming raw data into actionable business insights by designing interactive dashboards in Power BI, writing SQL, and generating reports.",
   },
 ];
 
@@ -46,8 +39,8 @@ const Profession = () => {
         </p>
 
         <p className="mt-6 text-sm sm:text-lg text-text-secondary leading-relaxed">
-          Created modern web apps, worked with data & AI, and designed clean user
-          experiences — everything needed to build smart digital products.
+          Building modern web apps, performing deep data analysis, and creating 
+          intelligent machine learning solutions to solve real-world problems.
         </p>
 
         <a

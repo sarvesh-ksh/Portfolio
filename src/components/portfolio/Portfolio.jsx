@@ -5,92 +5,65 @@ import useScrollReveal from "../../hooks/useScrollReveal";
 const projectData = [
   {
     id: 1,
-    category: "DATA ENGINEERING",
-    tag: "data",
-    title: "Snowflake Data Pipeline",
-    description:
-      "Built a scalable data pipeline using Snowflake, DBT, AWS, and Jinja SQL for transforming and managing large datasets.",
-    link: "#!",
-  },
-  {
-    id: 2,
-    category: "WEB SECURITY",
-    tag: "ai",
-    title: "Phishing URL Detector",
-    description:
-      "Detects malicious URLs using machine learning and rule-based analysis for enhanced web security.",
-    link: "#!",
-  },
-  {
-    id: 3,
     category: "WEB APP",
     tag: "web",
     title: "Real-time Chat App",
     description:
-      "A full-stack chat app with real-time messaging, typing indicators, and online/offline user status.",
-    link: "https://chat-sarvesh.vercel.app",
+      "A full-stack web chatting application featuring real-time messaging, typing indicators, and user authentication.",
+    link: "https://chat-sarvesh.vercel.app/",
+  },
+  {
+    id: 2,
+    category: "WEB DEVELOPMENT",
+    tag: "web",
+    title: "Saimaya Beauty Parlour",
+    description:
+      "A responsive, professional beauty business website with detailed services listing and interactive components.",
+    link: "https://saimaya-beauty.vercel.app/",
+  },
+  {
+    id: 3,
+    category: "DATA ANALYSIS",
+    tag: "data",
+    title: "Sales Analysis",
+    description:
+      "A PowerBI project for Sales Analysis, turning raw business data into interactive, creative, and actionable visuals.",
+    link: "https://github.com/sarvesh-ksh/Sales-Analysis",
   },
   {
     id: 4,
-    category: "AI PROJECT",
-    tag: "ai",
-    title: "AI Resume Analyzer",
+    category: "DATA ENGINEERING",
+    tag: "data",
+    title: "Snowflake Project",
     description:
-      "Analyzes resumes using AI to provide insights, suggestions, and improve candidate profiles.",
-    link: "#!",
+      "A database project building and structuring data warehouses and storage pipelines with Snowflake and Python.",
+    link: "https://github.com/sarvesh-ksh/SnowFlake-project",
   },
   {
     id: 5,
-    category: "WEB APP",
+    category: "WEB DEVELOPMENT",
     tag: "web",
-    title: "AI for Student",
+    title: "Personal Portfolio",
     description:
-      "An AI-powered platform to assist students with learning, productivity, and smart recommendations.",
-    link: "#!",
+      "Source code of this responsive portfolio website showcasing computer engineering projects, achievements, and skills.",
+    link: "https://github.com/sarvesh-ksh/Portfolio",
   },
   {
     id: 6,
-    category: "WEB DEVELOPMENT",
-    tag: "web",
-    title: "Beauty Parlour Website",
-    description:
-      "A professional website for a beauty business with service listings and customer interaction features.",
-    link: "https://saimaya.42web.io",
-  },
-  {
-    id: 7,
-    category: "WEB DEVELOPMENT",
-    tag: "web",
-    title: "Gram Aarogya Sanjivani",
-    description:
-      "A healthcare-focused website designed for rural communities with simple and accessible UI.",
-    link: "#!",
-  },
-  {
-    id: 8,
-    category: "DASHBOARD",
+    category: "DATA ANALYSIS",
     tag: "data",
-    title: "Blinkit Dashboard",
+    title: "Blinkit Data Analysis",
     description:
-      "A data visualization dashboard inspired by Blinkit to track orders, users, and analytics.",
-    link: "#!",
-  },
-  {
-    id: 9,
-    category: "DASHBOARD",
-    tag: "data",
-    title: "E-commerce Dashboard",
-    description:
-      "An analytics dashboard to monitor sales, revenue, and user behavior in an e-commerce system.",
-    link: "#!",
+      "Data analysis project using PowerBI to explore sales and operational metrics for Blinkit.",
+    link: "https://github.com/sarvesh-ksh/Blinkit-Sales-Analysis",
   },
 ];
 
 const filters = [
   { label: "All", value: "all" },
   { label: "Web Dev", value: "web" },
-  { label: "Data", value: "data" },
-  { label: "AI / ML", value: "ai" },
+  { label: "Data Science", value: "ai" },
+  { label: "Data Analysis", value: "data" },
 ];
 
 const Portfolio = () => {
@@ -135,8 +108,8 @@ const Portfolio = () => {
           My <span className="text-gradient">Projects</span>
         </p>
         <p className="text-text-secondary text-sm md:text-base mt-4 leading-relaxed">
-          Built 10+ projects across AI, Web Development, and Data Engineering —
-          focused on solving real-world problems with clean and scalable design.
+          Built 10+ projects across Web Development, Data Science, and Data Analysis —
+          focused on solving real-world problems with clean code and insights.
         </p>
       </div>
 
