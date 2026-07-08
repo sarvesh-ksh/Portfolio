@@ -1,30 +1,19 @@
 import useScrollReveal from "../../hooks/useScrollReveal";
 
 const experienceData = [
-  {
+    {
     id: 1,
-    role: "Machine Learning Intern",
-    company: "SimpliLearn",
-    location: "Remote",
-    period: "06/2024 – 09/2024",
-    details: [
-      "Applied statistical techniques for Exploratory Data Analysis (EDA) and data cleaning using Pandas and NumPy.",
-      "Identified critical patterns in housing datasets and applied machine learning models.",
-    ],
-  },
-  {
-    id: 2,
     role: "Data Analytics Intern",
     company: "Softhub Yess InfoTech",
-    location: "Nashik, India",
-    period: "Internship",
+    location: "Pune, India",
+    period: "12/2025 - 02/2026",
     details: [
       "Worked with SQL databases and Excel sheet logic for business intelligence reporting.",
       "Processed, queried, and analyzed structured datasets to generate analytical outputs.",
     ],
   },
   {
-    id: 3,
+    id: 2,
     role: "Web Developer (Freelance)",
     company: "Saimaya Beauty Parlor",
     location: "Nashik, India",
@@ -35,7 +24,7 @@ const experienceData = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     role: "Cloud Compute Intern",
     company: "Arrow Technologies & Solutions",
     location: "Nashik, India",
@@ -44,7 +33,17 @@ const experienceData = [
       "Gained hands-on experience with Amazon Web Services (AWS) deployment environments.",
       "Explored networking fundamentals, security configurations, and virtual machines setup.",
     ],
-  },
+  },{
+    id: 4,
+    role: "Machine Learning Intern",
+    company: "SimpliLearn",
+    location: "Remote",
+    period: "06/2024 – 09/2024",
+    details: [
+      "Applied statistical techniques for Exploratory Data Analysis (EDA) and data cleaning using Pandas and NumPy.",
+      "Identified critical patterns in housing datasets and applied machine learning models.",
+    ],
+  }
 ];
 
 const educationData = [
