@@ -4,24 +4,27 @@ import useScrollReveal from "../../hooks/useScrollReveal";
 const rolesData = [
   {
     id: 1,
-    icon: "🌐",
-    title: "Web Developer",
+    title: "Full-Stack Web Development",
     description:
-      "Building fast, responsive, and modern web applications using clean, scalable code and modern framework integration.",
+      "Developing responsive, database-driven web applications using React.js, Node.js, Express.js, MongoDB, MySQL, and RESTful APIs.",
   },
   {
     id: 2,
-    icon: "🔬",
-    title: "Data Scientist",
+    title: "Cloud & Data Engineering",
     description:
-      "Applying statistical techniques, performing exploratory data analysis, and building machine learning models using Python, Pandas, and NumPy.",
+      "Building ETL/ELT pipelines, data warehouses, and data modeling pipelines using AWS S3, Snowflake, dbt, Python, and SQL.",
   },
   {
     id: 3,
-    icon: "📊",
-    title: "Data Analyst",
+    title: "Data Analytics & Business Intelligence",
     description:
-      "Transforming raw data into actionable business insights by designing interactive dashboards in Power BI, writing SQL, and generating reports.",
+      "Transforming raw datasets into actionable insights by designing Star Schema models and interactive dashboards in Power BI, DAX, and Advanced Excel.",
+  },
+  {
+    id: 4,
+    title: "Machine Learning & Predictive Modeling",
+    description:
+      "Conducting exploratory data analysis (EDA), feature engineering, and developing classification & regression models with Scikit-learn, Pandas, and NumPy.",
   },
 ];
 
@@ -29,34 +32,25 @@ const Profession = () => {
   const sectionRef = useScrollReveal();
 
   return (
-    <div
-      ref={sectionRef}
-      className="content grid md:grid-cols-2 py-16 md:py-24 lg:py-32 max-xxl:px-4 xxl:px-2 gap-8"
-    >
-      <div className="flex flex-col justify-center max-md:text-center md:pe-8 lg:pe-16 scroll-reveal-left">
-        <p className="section-title">
-          What I <span className="text-gradient">Do</span>?
-        </p>
+    <section id="services" ref={sectionRef} className="content px-4 sm:px-6 py-16 md:py-24" aria-label="Services section">
 
-        <p className="mt-6 text-sm sm:text-lg text-text-secondary leading-relaxed">
-          Building modern web apps, performing deep data analysis, and creating 
-          intelligent machine learning solutions to solve real-world problems.
+      {/* Services Grid Header */}
+      <div className="mb-8 max-w-xl scroll-reveal">
+        <p className="section-label mb-2">Core Domains</p>
+        <h2 className="section-title">What I Do</h2>
+        <p className="text-text-secondary text-sm mt-2 leading-relaxed">
+          Technical specialization across web development, data engineering, business analytics, and machine learning.
         </p>
-
-        <a
-          href="#contact"
-          className="btn btn-primary rounded-xl w-fit mt-8 text-sm font-semibold max-md:mx-auto px-7 py-3"
-        >
-          Say Hello 👋
-        </a>
       </div>
 
-      <div id="services" className="scroll-reveal-right">
-        {rolesData.map((role, index) => (
-          <Roles key={role.id} role={role} index={index} />
+      {/* Services Grid */}
+      <div className="grid md:grid-cols-2 gap-4 scroll-reveal">
+        {rolesData.map((role) => (
+          <Roles key={role.id} role={role} />
         ))}
       </div>
-    </div>
+
+    </section>
   );
 };
 

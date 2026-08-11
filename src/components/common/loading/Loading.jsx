@@ -1,13 +1,12 @@
-import { HashLoader } from "react-spinners";
-
 const Loading = () => {
   return (
     <div
       className="fixed inset-0 flex flex-col items-center justify-center bg-bg-primary z-50"
       aria-label="Loading"
+      role="status"
     >
-      <HashLoader color="#a855f7" speedMultiplier={2} size={80} />
-      <p className="mt-6 text-text-secondary text-sm font-medium animate-pulse">
+      <div className="css-spinner" aria-hidden="true" />
+      <p className="mt-4 text-text-muted text-xs font-medium font-mono">
         Loading...
       </p>
     </div>

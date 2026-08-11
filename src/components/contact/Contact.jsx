@@ -18,11 +18,13 @@ const addressData = [
     icon: faEnvelope,
     title: "Email",
     description: "sarveshkshatriya545@gmail.com",
+    href: "mailto:sarveshkshatriya545@gmail.com",
   },
   {
     icon: faPhone,
     title: "Phone",
-    description: "+91 979639 47499",
+    description: "+91 9763947499",
+    href: "tel:+919763947499",
   },
 ];
 
@@ -30,44 +32,38 @@ const Contact = () => {
   const sectionRef = useScrollReveal();
 
   return (
-    <div ref={sectionRef} className="px-4 py-16 md:py-24">
-      <div
-        className="content glass-card p-6 md:p-10 lg:p-16 xl:p-20 rounded-3xl scroll-reveal-scale"
-        id="contact"
-      >
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <p className="section-title">
-            Let's <span className="text-gradient">Connect</span>
-          </p>
-          <p className="text-text-secondary text-sm sm:text-base mt-4 max-w-lg mx-auto">
-            Feel free to reach out — I'm open to discussing projects,
-            collaborations, or anything tech-related.
-          </p>
+    <section id="contact" ref={sectionRef} className="content px-4 sm:px-6 py-16 md:py-24" aria-label="Contact section">
+      <div className="mb-10 max-w-xl scroll-reveal">
+        <p className="section-label mb-2">Get In Touch</p>
+        <h2 className="section-title">
+          Contact Me
+        </h2>
+        <p className="text-text-secondary text-sm mt-2 leading-relaxed">
+          Open to full-stack web development, data engineering, and data science opportunities. Feel free to send a message or reach out directly.
+        </p>
+      </div>
+
+      <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+        {/* LEFT: Address & Info */}
+        <div className="lg:col-span-5 space-y-4 scroll-reveal-left">
+          <div className="space-y-3">
+            {addressData.map((item, index) => (
+              <Address item={item} key={index} />
+            ))}
+          </div>
+
+          <div className="card p-4">
+            <p className="text-[11px] text-text-muted font-semibold uppercase tracking-wider mb-2.5">Profiles &amp; Coding Platforms</p>
+            <SocialMedia />
+          </div>
         </div>
 
-        <div className="flex flex-col-reverse lg:flex-row lg:gap-12 xl:gap-20 justify-between">
-          {/* LEFT SIDE — Info */}
-          <div className="scroll-reveal-left lg:max-w-sm">
-            <div className="space-y-4 my-8 lg:my-0">
-              {addressData.map((item, index) => (
-                <Address item={item} key={index} index={index} />
-              ))}
-            </div>
-
-            <div className="mt-8 max-lg:text-center max-md:mb-6">
-              <p className="text-text-muted text-xs mb-3 uppercase tracking-wider font-semibold">Follow Me</p>
-              <SocialMedia />
-            </div>
-          </div>
-
-          {/* RIGHT SIDE — Form */}
-          <div className="w-full scroll-reveal-right">
-            <Form />
-          </div>
+        {/* RIGHT: Form */}
+        <div className="lg:col-span-7 card p-6 sm:p-8 scroll-reveal-right">
+          <Form />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

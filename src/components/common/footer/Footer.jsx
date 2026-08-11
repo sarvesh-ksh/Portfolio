@@ -11,58 +11,57 @@ const navItems = [
   { id: 7, name: "Services",   url: "services" },
 ];
 
-const copyrightYear = new Date().getFullYear();
+const year = new Date().getFullYear();
 
 const Footer = () => (
-  <footer className="relative border-t border-white/[0.06] bg-bg-primary overflow-hidden">
-    {/* Subtle glow at top */}
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-
-    <div className="content max-xxl:px-4 py-12">
+  <footer className="relative border-t border-border bg-bg-primary">
+    <div className="content max-xxl:px-4 sm:px-6 py-12">
       {/* Top row */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
 
-        {/* Logo */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center font-display font-bold text-white text-base shadow-lg shadow-accent/30">
-            S
+        {/* Logo + info */}
+        <div>
+          <div className="flex items-center gap-2 mb-1.5">
+            <div className="w-7 h-7 rounded bg-accent flex items-center justify-center font-display font-bold text-white text-xs">
+              S
+            </div>
+            <span className="font-display font-semibold text-sm text-text-primary tracking-tight">
+              Sarvesh Kshatriya
+            </span>
           </div>
-          <div className="flex flex-col leading-none">
-            <span className="font-display font-semibold text-[16px] text-text-primary tracking-tight">Sarvesh</span>
-            <span className="text-[10px] text-text-muted tracking-widest uppercase font-medium">Portfolio</span>
-          </div>
+          <p className="text-xs text-text-muted max-w-xs leading-relaxed">
+            Computer Engineering Student &bull; Full-Stack Developer &amp; Data Scientist based in Pune, India.
+          </p>
         </div>
 
         {/* Nav links */}
-        <div className="flex flex-wrap justify-center gap-0.5">
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              to={item.url}
-              smooth
-              duration={900}
-              className="px-3 py-2 text-[13px] text-text-muted hover:text-accent cursor-pointer transition-colors duration-300 rounded-lg hover:bg-white/[0.04]"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
+        <nav aria-label="Footer navigation">
+          <div className="flex flex-wrap gap-x-1 gap-y-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.url}
+                smooth
+                duration={800}
+                className="px-2.5 py-1 text-xs text-text-muted hover:text-text-primary cursor-pointer transition-colors rounded hover:bg-white/[0.03]"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </nav>
 
-        {/* Social icons */}
+        {/* Social */}
         <SocialMedia />
       </div>
 
       {/* Divider */}
-      <div className="h-px w-full bg-white/[0.05] my-8" />
+      <div className="divider-line my-6" />
 
       {/* Bottom row */}
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-text-muted text-[12.5px]">
-        <p>© {copyrightYear} Sarvesh Kshatriya. All rights reserved.</p>
-        <p className="flex items-center gap-1.5">
-          Built with
-          <span className="text-red-400 text-[14px]">♥</span>
-          using React &amp; Tailwind CSS
-        </p>
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-text-muted">
+        <p>© {year} Sarvesh Kshatriya. All rights reserved.</p>
+        <p>Pune, Maharashtra, India &bull; sarveshkshatriya545@gmail.com</p>
       </div>
     </div>
   </footer>

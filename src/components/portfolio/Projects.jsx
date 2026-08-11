@@ -1,80 +1,83 @@
-import useTilt3D from "../../hooks/useTilt3D";
+const ExternalLinkIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+  </svg>
+);
 
-const categoryStyles = {
-  "DATA ENGINEERING": { icon: "⚙️",  color: "from-blue-500/25 to-cyan-500/10",     chip: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
-  "DATA SCIENCE":     { icon: "🔬",  color: "from-emerald-500/25 to-teal-500/10", chip: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" },
-  "DATA ANALYSIS":    { icon: "📊",  color: "from-amber-500/25 to-yellow-500/10", chip: "bg-amber-500/10 text-amber-400 border-amber-500/20" },
-  "WEB SECURITY":     { icon: "🛡️", color: "from-red-500/25 to-orange-500/10",   chip: "bg-red-500/10 text-red-400 border-red-500/20" },
-  "WEB APP":          { icon: "🚀",  color: "from-violet-500/25 to-pink-500/10",  chip: "bg-violet-500/10 text-violet-400 border-violet-500/20" },
-  "AI PROJECT":       { icon: "🤖",  color: "from-emerald-500/25 to-teal-500/10",chip: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" },
-  "WEB DEVELOPMENT":  { icon: "🌐",  color: "from-indigo-500/25 to-violet-500/10",chip: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20" },
-  "DASHBOARD":        { icon: "📊",  color: "from-amber-500/25 to-yellow-500/10", chip: "bg-amber-500/10 text-amber-400 border-amber-500/20" },
-};
-
-const Projects = ({ data }) => {
-  const { ref, handleMouseMove, handleMouseLeave } = useTilt3D(5);
+const Projects = ({ data, isFeatured = false }) => {
   const hasLink = data?.link && data.link !== "#!";
-  const style   = categoryStyles[data?.category] || { icon: "💻", color: "from-white/10 to-white/5", chip: "bg-white/5 text-text-muted border-white/10" };
 
-  const Wrapper     = hasLink ? "a" : "div";
+  const Wrapper = hasLink ? "a" : "div";
   const wrapperProps = hasLink
     ? { href: data.link, target: "_blank", rel: "noopener noreferrer" }
     : {};
 
-  return (
-    <Wrapper {...wrapperProps} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-2xl">
-      <div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="glass-card overflow-hidden cursor-pointer h-full flex flex-col hover-lift"
-        style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+  if (isFeatured) {
+    return (
+      <Wrapper
+        {...wrapperProps}
+        className="group card p-6 sm:p-7 block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent border-l-2 border-l-accent"
       >
-        {/* Top gradient band */}
-        <div className={`h-[3px] w-full bg-gradient-to-r ${style.color}`} />
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <span className="badge-accent">{data.category}</span>
+          <span className="text-[11px] font-semibold text-accent uppercase tracking-wider font-mono">Featured Project</span>
+        </div>
 
-        {/* Card body */}
-        <div className="p-6 flex-1 flex flex-col" style={{ transform: "translateZ(12px)" }}>
+        <h3 className="text-text-primary text-lg sm:text-xl font-display font-bold mb-2 group-hover:text-accent transition-colors">
+          {data.title}
+        </h3>
 
-          {/* Header */}
-          <div className="flex items-start justify-between mb-5">
-            <span className="text-3xl leading-none">{style.icon}</span>
-            <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider border ${style.chip}`}>
-              {data?.category}
-            </span>
+        <p className="text-text-secondary text-xs sm:text-sm leading-relaxed mb-4">
+          {data.description}
+        </p>
+
+        {data.tech && (
+          <div className="flex flex-wrap gap-1.5 mb-5">
+            {data.tech.map((t) => (
+              <span key={t} className="skill-chip">{t}</span>
+            ))}
           </div>
+        )}
 
-          {/* Title */}
-          <h3 className="text-text-primary text-[17px] font-display font-bold mb-2.5 leading-snug group-hover:text-accent-light transition-colors duration-300">
-            {data?.title}
-          </h3>
+        <div className="pt-3 border-t border-border flex items-center justify-between text-xs text-text-muted group-hover:text-accent transition-colors font-medium">
+          <span>{hasLink ? (data.link.includes("github") ? "View Source Code" : "Live Demo") : "Repository Available"}</span>
+          <ExternalLinkIcon />
+        </div>
+      </Wrapper>
+    );
+  }
 
-          {/* Description */}
-          <p className="text-text-secondary text-[13.5px] leading-relaxed flex-1">
-            {data?.description}
-          </p>
+  return (
+    <Wrapper
+      {...wrapperProps}
+      className="group card p-5 flex flex-col justify-between h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    >
+      <div>
+        <div className="flex items-center justify-between gap-2 mb-2.5">
+          <span className="badge-accent">{data.category}</span>
+        </div>
 
-          {/* Divider */}
-          <div className="h-px w-full bg-white/[0.06] my-4" />
+        <h3 className="text-text-primary text-sm font-display font-bold mb-2 leading-snug group-hover:text-accent transition-colors">
+          {data.title}
+        </h3>
 
-          {/* Footer row */}
-          <div className="flex items-center justify-between">
-            <span className="text-[12px] text-text-muted group-hover:text-accent transition-colors duration-300 font-medium">
-              {hasLink ? (data.link.includes("github") ? "View Source" : "Live Demo") : "Coming Soon"}
-            </span>
-            <div className="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center text-text-muted group-hover:text-accent group-hover:bg-accent/10 group-hover:translate-x-1 transition-all duration-300">
-              {hasLink ? (
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                </svg>
-              ) : (
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                </svg>
-              )}
-            </div>
+        <p className="text-text-secondary text-xs leading-relaxed mb-4">
+          {data.description}
+        </p>
+      </div>
+
+      <div>
+        {data.tech && (
+          <div className="flex flex-wrap gap-1 mb-4">
+            {data.tech.map((t) => (
+              <span key={t} className="skill-chip text-[11px] px-2 py-0.5">{t}</span>
+            ))}
           </div>
+        )}
 
+        <div className="pt-3 border-t border-border flex items-center justify-between text-xs text-text-muted group-hover:text-accent transition-colors font-medium">
+          <span>{hasLink ? (data.link.includes("github") ? "View Source" : "Live Demo") : "Repository Available"}</span>
+          <ExternalLinkIcon />
         </div>
       </div>
     </Wrapper>

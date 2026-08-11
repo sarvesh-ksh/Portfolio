@@ -1,32 +1,31 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Address = ({ item, index }) => {
-  return (
-    <div
-      className={`group glass-card p-4 md:p-5 flex items-center gap-4 cursor-default scroll-reveal stagger-${index + 1}`}
-    >
-      {/* Icon */}
-      <div
-        className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-xl
-          bg-white/5 group-hover:bg-accent/20 transition-all duration-300"
-      >
-        <FontAwesomeIcon
-          icon={item?.icon}
-          className="text-base text-text-muted group-hover:text-accent transition-all duration-300"
-        />
+const Address = ({ item }) => {
+  const content = (
+    <div className="card p-4 flex items-center gap-3.5 transition-colors hover:border-white/20">
+      <div className="w-8 h-8 rounded bg-white/[0.04] border border-border flex items-center justify-center text-text-muted flex-shrink-0">
+        <FontAwesomeIcon icon={item?.icon} className="text-xs text-accent" />
       </div>
-
-      {/* Text */}
-      <div>
-        <p className="text-xs text-text-muted uppercase tracking-wider font-medium">
+      <div className="overflow-hidden">
+        <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold">
           {item?.title}
         </p>
-        <p className="text-sm md:text-base text-text-primary font-medium mt-0.5">
+        <p className="text-xs sm:text-sm text-text-primary font-medium mt-0.5 truncate">
           {item?.description}
         </p>
       </div>
     </div>
   );
+
+  if (item?.href) {
+    return (
+      <a href={item.href} className="block focus:outline-none">
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 };
 
 export default Address;

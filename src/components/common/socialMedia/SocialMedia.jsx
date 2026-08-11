@@ -1,56 +1,68 @@
-import {
-  faLinkedin,
-  faGithub,
-  faInstagram,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/* Inline SVG icon components — replaces FontAwesome brand icons for social links */
+
+const GitHubIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+);
+
+const TwitterIcon = () => (
+  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
+const InstagramIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+  </svg>
+);
 
 const LeetCodeIcon = () => (
-  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-    <path d="M16.37 3.1a1.5 1.5 0 0 1 2.12 2.12l-9.9 9.9a1.5 1.5 0 0 0 0 2.12l5.66 5.66a1.5 1.5 0 0 1-2.12 2.12l-5.66-5.66a4.5 4.5 0 0 1 0-6.36l9.9-9.9z" />
-    <path d="M20.49 10.99a1.5 1.5 0 0 1 0 3H9.51a1.5 1.5 0 0 1 0-3h10.98z" />
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
   </svg>
 );
 
 const HackerRankIcon = () => (
-  <svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor">
-    <path d="M24 4L6 14v20l18 10 18-10V14L24 4zm3 28h-6V16h6v16z" />
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.134 4.836c.29.001.46.003.556.003l.071-.003h.004c.332 0 .617.244.617.572v.572c0 .005.025 1.162.025 1.162.005.245.188.427.427.427h1.215c.337 0 .611.274.611.611v1.215c0 .239-.142.427-.427.427h-.001c-.005 0-1.162.025-1.162.025a.427.427 0 0 0-.427.427v4.754a.427.427 0 0 0 .427.427l1.162.025h.001c.285 0 .427.188.427.427v1.215a.611.611 0 0 1-.611.611h-1.215a.427.427 0 0 0-.427.427s-.02 1.157-.025 1.162v.001c0 .328-.285.572-.617.572h-.004l-.071-.003c-.096 0-.266.002-.556.003-.867.003-1.336-.003-1.336-.003-.332 0-.617-.244-.617-.572v-.001c-.005-.005-.025-1.162-.025-1.162a.427.427 0 0 0-.427-.427H8.246a.611.611 0 0 1-.611-.611v-1.215c0-.239.142-.427.427-.427h.001c.005 0 1.162-.025 1.162-.025a.427.427 0 0 0 .427-.427V9.857a.427.427 0 0 0-.427-.427L8.063 9.405h-.001c-.285 0-.427-.188-.427-.427V7.763c0-.337.274-.611.611-.611h1.215c.239 0 .427-.182.427-.427 0 0 .02-1.157.025-1.162v-.001c0-.328.285-.572.617-.572h.004l.071.003s.469.006 1.336.003c0 0 0 0 0 0z" />
   </svg>
 );
 
 const socialIcons = [
-  { icon: <FontAwesomeIcon icon={faLinkedin} />, link: "https://www.linkedin.com/in/sarvesh-kshatriya/", label: "LinkedIn" },
-  { icon: <FontAwesomeIcon icon={faGithub} />, link: "https://github.com/sarvesh-ksh", label: "GitHub" },
-  { icon: <FontAwesomeIcon icon={faTwitter} />, link: "https://x.com/Kshatriya545", label: "Twitter" },
-  { icon: <FontAwesomeIcon icon={faInstagram} />, link: "https://www.instagram.com/sarvesh_k_2005/", label: "Instagram" },
-  { icon: <LeetCodeIcon />, link: "https://leetcode.com/u/sarvesh_2005/", label: "LeetCode" },
-  { icon: <HackerRankIcon />, link: "https://www.hackerrank.com/profile/sarveshkshatriy1", label: "HackerRank" },
+  { icon: <LinkedInIcon />,  link: "https://www.linkedin.com/in/kshatriya-sarvesh",            label: "LinkedIn"   },
+  { icon: <GitHubIcon />,    link: "https://github.com/sarvesh-ksh",                            label: "GitHub"     },
+  { icon: <TwitterIcon />,   link: "https://x.com/Kshatriya545",                                label: "X / Twitter"},
+  { icon: <InstagramIcon />, link: "https://www.instagram.com/sarvesh_k_2005/",                 label: "Instagram"  },
+  { icon: <LeetCodeIcon />,  link: "https://leetcode.com/u/sarvesh_2005/",                      label: "LeetCode"   },
+  { icon: <HackerRankIcon />,link: "https://www.hackerrank.com/profile/sarveshkshatriy1",       label: "HackerRank" },
 ];
 
-const SocialMedia = () => {
-  return (
-    <div className="flex items-center gap-2 flex-wrap">
-      {socialIcons.map((item, index) => (
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={item.label}
-          className="group w-10 h-10 flex items-center justify-center rounded-xl
-            bg-white/5 border border-white/10
-            text-text-secondary transition-all duration-300
-            hover:bg-accent/20 hover:border-accent/40 hover:text-accent
-            hover:shadow-lg hover:shadow-accent/20 hover:scale-110"
-          key={index}
-        >
-          <div className="w-[18px] h-[18px] flex items-center justify-center">
-            {item.icon}
-          </div>
-        </a>
-      ))}
-    </div>
-  );
-};
+const SocialMedia = () => (
+  <div className="flex items-center gap-2 flex-wrap">
+    {socialIcons.map((item) => (
+      <a
+        key={item.label}
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={item.label}
+        className="w-8 h-8 flex items-center justify-center rounded
+          bg-white/[0.04] border border-border text-text-muted
+          transition-colors duration-150
+          hover:bg-bg-tertiary hover:border-white/20 hover:text-text-primary"
+      >
+        {item.icon}
+      </a>
+    ))}
+  </div>
+);
 
 export default SocialMedia;
