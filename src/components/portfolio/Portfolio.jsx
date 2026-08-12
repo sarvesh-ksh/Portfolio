@@ -11,7 +11,7 @@ const projectData = [
     description:
       "Designed and built an end-to-end data engineering pipeline using AWS S3, Snowflake, and dbt for fraud detection. Processed 6.3M+ transaction records through ETL workflows, data validation, and integrated Scikit-learn models for fraud prediction.",
     tech: ["Snowflake", "AWS S3", "dbt", "Python", "SQL", "Scikit-Learn"],
-    link: "https://github.com/sarvesh-ksh",
+    link: "https://github.com/sarvesh-ksh/Fraud-Prediction-System",
     featured: true,
   },
   {
@@ -52,20 +52,10 @@ const projectData = [
     description:
       "Analyzed and cleaned 10,000+ sales records using Pandas and NumPy. Performed Exploratory Data Analysis (EDA) to identify seasonal trends and visualized insights with Matplotlib and Seaborn.",
     tech: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
-    link: "https://github.com/sarvesh-ksh",
+    link: "https://github.com/sarvesh-ksh/DataScienceLearning",
   },
   {
     id: 6,
-    category: "MACHINE LEARNING",
-    tag: "ai",
-    title: "Housing Price Prediction Model",
-    description:
-      "Machine learning regression model predicting housing prices based on multi-variable features. Enhanced accuracy through feature engineering, EDA, and hyperparameter tuning.",
-    tech: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Regression"],
-    link: "https://github.com/sarvesh-ksh",
-  },
-  {
-    id: 7,
     category: "MACHINE LEARNING",
     tag: "ai",
     title: "Customer Churn Prediction",
@@ -75,7 +65,7 @@ const projectData = [
     link: "https://github.com/sarvesh-ksh",
   },
   {
-    id: 8,
+    id: 7,
     category: "BUSINESS INTELLIGENCE",
     tag: "data",
     title: "Blinkit Operations & Sales Dashboard",
@@ -85,7 +75,7 @@ const projectData = [
     link: "https://github.com/sarvesh-ksh/Blinkit-Sales-Analysis",
   },
   {
-    id: 9,
+    id: 8,
     category: "WEB DEVELOPMENT",
     tag: "web",
     title: "Saimaya Beauty Parlor Website",
@@ -95,7 +85,7 @@ const projectData = [
     link: "https://saimaya-beauty.vercel.app/",
   },
   {
-    id: 10,
+    id: 9,
     category: "WEB DEVELOPMENT",
     tag: "web",
     title: "Gram Aarogya Sanjivani",
@@ -105,17 +95,17 @@ const projectData = [
     link: "https://github.com/sarvesh-ksh",
   },
   {
-    id: 11,
+    id: 10,
     category: "DATA ANALYSIS",
     tag: "data",
     title: "E-Commerce Data Analysis (Excel)",
     description:
       "Cleaned and transformed 5,000+ rows of raw e-commerce data using Power Query and formulas. Identified top 3 revenue-generating categories with Pivot Tables.",
     tech: ["Advanced Excel", "Power Query", "Pivot Tables"],
-    link: "https://github.com/sarvesh-ksh",
+    link: "https://github.com/sarvesh-ksh/DataScienceLearning",
   },
   {
-    id: 12,
+    id: 11,
     category: "DATABASE SYSTEMS",
     tag: "data",
     title: "Student Database Management System",
@@ -127,10 +117,10 @@ const projectData = [
 ];
 
 const filters = [
-  { label: "All Projects",  value: "all" },
-  { label: "Web Dev",       value: "web" },
-  { label: "Data & Cloud",  value: "data" },
-  { label: "AI & ML",       value: "ai" },
+  { label: "All Projects", value: "all" },
+  { label: "Web Dev", value: "web" },
+  { label: "Data & Cloud", value: "data" },
+  { label: "AI & ML", value: "ai" },
 ];
 
 const Portfolio = () => {
@@ -142,7 +132,9 @@ const Portfolio = () => {
       ? projectData
       : projectData.filter((p) => p.tag === activeFilter);
 
-  const featuredProject = filteredProjects.find((p) => p.featured) || (activeFilter === "all" ? filteredProjects[0] : null);
+  const featuredProject =
+    filteredProjects.find((p) => p.featured) ||
+    (activeFilter === "all" ? filteredProjects[0] : null);
   const gridProjects = featuredProject
     ? filteredProjects.filter((p) => p.id !== featuredProject.id)
     : filteredProjects;
@@ -157,11 +149,11 @@ const Portfolio = () => {
       {/* Header */}
       <div className="mb-10 max-w-xl scroll-reveal">
         <p className="section-label mb-2">Projects</p>
-        <h2 className="section-title">
-          Selected Engineering Projects
-        </h2>
+        <h2 className="section-title">Selected Engineering Projects</h2>
         <p className="text-text-secondary text-sm mt-2 leading-relaxed">
-          Full-stack web applications, end-to-end data pipelines, predictive machine learning models, and analytics dashboards built from Sarvesh's engineering work.
+          Full-stack web applications, end-to-end data pipelines, predictive
+          machine learning models, and analytics dashboards built from Sarvesh's
+          engineering work.
         </p>
       </div>
 
@@ -193,7 +185,10 @@ const Portfolio = () => {
       {gridProjects.length > 0 && (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {gridProjects.map((project, index) => (
-            <div key={project.id} className={`scroll-reveal stagger-${(index % 3) + 1}`}>
+            <div
+              key={project.id}
+              className={`scroll-reveal stagger-${(index % 3) + 1}`}
+            >
               <Projects data={project} />
             </div>
           ))}
@@ -209,7 +204,17 @@ const Portfolio = () => {
           className="btn-secondary"
         >
           View All Repositories on GitHub
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
           </svg>
         </a>
