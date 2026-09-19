@@ -1,14 +1,14 @@
 import SocialMedia from "../socialMedia/SocialMedia";
 import { Link } from "react-scroll";
+import { RESUME_PATH } from "../../../constants/resume";
 
 const navItems = [
-  { id: 1, name: "Home",       url: "introduction" },
-  { id: 2, name: "About",      url: "profile" },
-  { id: 3, name: "Skills",     url: "skills" },
+  { id: 1, name: "Home", url: "introduction" },
+  { id: 2, name: "About", url: "profile" },
+  { id: 3, name: "Skills", url: "skills" },
   { id: 4, name: "Experience", url: "experience" },
-  { id: 5, name: "Projects",   url: "portfolio" },
-  { id: 6, name: "Honors",     url: "achievements" },
-  { id: 7, name: "Services",   url: "services" },
+  { id: 5, name: "Projects", url: "portfolio" },
+  { id: 6, name: "Contact", url: "contact" },
 ];
 
 const year = new Date().getFullYear();
@@ -30,13 +30,13 @@ const Footer = () => (
             </span>
           </div>
           <p className="text-xs text-text-muted max-w-xs leading-relaxed">
-            Computer Engineering Student &bull; Full-Stack Developer &amp; Data Scientist based in Pune, India.
+            Computer Engineering Student &bull; Data Engineer &amp; Software Developer based in Pune, India.
           </p>
         </div>
 
         {/* Nav links */}
         <nav aria-label="Footer navigation">
-          <div className="flex flex-wrap gap-x-1 gap-y-1">
+          <div className="flex flex-wrap items-center gap-x-1 gap-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.id}
@@ -48,6 +48,15 @@ const Footer = () => (
                 {item.name}
               </Link>
             ))}
+            <a
+              href={RESUME_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1 text-xs text-accent hover:text-accent-hover transition-colors rounded hover:bg-white/[0.03]"
+              aria-label="View resume in new tab"
+            >
+              Resume &nearr;
+            </a>
           </div>
         </nav>
 
@@ -60,7 +69,7 @@ const Footer = () => (
 
       {/* Bottom row */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-text-muted">
-        <p>© {year} Sarvesh Kshatriya. All rights reserved.</p>
+        <p>&copy; {year} Sarvesh Kshatriya. All rights reserved.</p>
         <p>Pune, Maharashtra, India &bull; sarveshkshatriya545@gmail.com</p>
       </div>
     </div>

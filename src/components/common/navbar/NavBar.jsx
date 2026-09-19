@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
+import { RESUME_PATH } from "../../../constants/resume";
 
 const navItems = [
   { id: 1, name: "Home", url: "introduction" },
@@ -7,8 +8,7 @@ const navItems = [
   { id: 3, name: "Skills", url: "skills" },
   { id: 4, name: "Experience", url: "experience" },
   { id: 5, name: "Projects", url: "portfolio" },
-  { id: 6, name: "Honors", url: "achievements" },
-  { id: 7, name: "Services", url: "services" },
+  { id: 6, name: "Contact", url: "contact" },
 ];
 
 const handleMenuClick = () => {
@@ -106,6 +106,16 @@ const NavBar = () => {
 
             {/* Right side */}
             <div className="flex items-center gap-3">
+              <a
+                href={RESUME_PATH}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg border border-border hover:border-accent text-xs font-semibold text-text-secondary hover:text-text-primary transition-all duration-200"
+                aria-label="View resume in new tab"
+              >
+                Resume
+              </a>
+
               <Link
                 to="contact"
                 smooth
@@ -152,6 +162,15 @@ const NavBar = () => {
         >
           <div className="flex flex-col gap-1">
             {navItems.map((item) => navLink(item, true))}
+            <a
+              href={RESUME_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="block py-3 px-5 text-base text-accent hover:text-accent-hover hover:bg-white/5 rounded-xl font-medium"
+            >
+              View Resume &rarr;
+            </a>
           </div>
 
           {/* CTA inside drawer */}

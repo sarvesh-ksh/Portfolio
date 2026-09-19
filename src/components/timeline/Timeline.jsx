@@ -6,10 +6,10 @@ const experienceData = [
     role: "Data Analytics Intern",
     company: "Softhub Yess InfoTech",
     location: "Pune, Maharashtra",
-    period: "12/2025 – 02/2026",
+    period: "Dec 2025 – Feb 2026",
     details: [
-      "Processed and analyzed datasets using SQL and Advanced Excel for business reporting.",
-      "Optimized data pipelines using SQL, improving data accuracy by 15% for business reporting and supported dashboard creation for business insights.",
+      "Processed and analyzed structured business datasets using SQL and Advanced Excel to support reporting workflows.",
+      "Worked on SQL query optimization and contributed to dashboard creation for internal business intelligence use.",
     ],
   },
   {
@@ -17,10 +17,10 @@ const experienceData = [
     role: "Machine Learning Intern",
     company: "SimpliLearn",
     location: "Remote",
-    period: "06/2024 – 09/2024",
+    period: "Jun 2024 – Sep 2024",
     details: [
-      "Applied statistical techniques for Exploratory Data Analysis (EDA) and data cleaning using Pandas and NumPy to identify patterns in Housing data.",
-      "Applied machine learning concepts on structured datasets to build predictive insights.",
+      "Applied EDA techniques and data cleaning on structured datasets using Pandas and NumPy to surface patterns in housing data.",
+      "Built and evaluated predictive ML models on cleaned datasets, reinforcing applied machine learning workflows.",
     ],
   },
   {
@@ -28,9 +28,9 @@ const experienceData = [
     role: "Web Developer (Freelance)",
     company: "Saimaya Beauty Parlor",
     location: "Nashik, Maharashtra",
-    period: "11/2023 – 03/2024",
+    period: "Nov 2023 – Mar 2024",
     details: [
-      "Developed and deployed a responsive website, improving online visibility, customer engagement, and client reach.",
+      "Designed and deployed a responsive landing site using React and Tailwind CSS, improving the client's online presence and discoverability.",
     ],
   },
   {
@@ -38,9 +38,9 @@ const experienceData = [
     role: "Cloud Compute Intern",
     company: "Arrow Technologies & Solutions",
     location: "Nashik, Maharashtra",
-    period: "06/2023 – 07/2023",
+    period: "Jun 2023 – Jul 2023",
     details: [
-      "Gained hands-on experience with Amazon Web Services (AWS) deployment environments and Networking fundamentals.",
+      "Gained hands-on exposure to AWS deployment environments, EC2 instances, and foundational cloud networking concepts.",
     ],
   },
 ];
@@ -53,8 +53,8 @@ const educationData = [
     location: "Pune, Maharashtra",
     period: "2024 – 2027",
     details: [
-      "Current Grade: 9.29 CGPA",
-      "Specializing in Software Development, Database Management, Data Analytics, and Cloud Computing.",
+      "Current CGPA: 9.19",
+      "Coursework: Software Engineering, Database Systems, Data Structures & Algorithms, Computer Networks, Operating Systems.",
     ],
   },
   {
@@ -71,7 +71,7 @@ const educationData = [
 ];
 
 const TimelineCard = ({ item, type }) => (
-  <div className="card p-5 relative border-l-2 border-l-accent/50 hover:border-l-accent transition-colors">
+  <div className="card p-5 relative border-l-2 border-l-accent/40 hover:border-l-accent transition-colors">
     <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
       <span className="badge-accent">{item.period}</span>
       <span className="text-[11px] text-text-muted font-medium">{item.location}</span>
@@ -81,14 +81,14 @@ const TimelineCard = ({ item, type }) => (
       {type === "experience" ? item.role : item.degree}
     </h4>
 
-    <p className="text-xs text-text-secondary mt-0.5 font-medium">
+    <p className="text-xs text-accent mt-0.5 font-medium">
       {type === "experience" ? item.company : item.institution}
     </p>
 
     <ul className="mt-3 space-y-1.5 text-xs text-text-secondary leading-relaxed">
       {item.details.map((detail, idx) => (
         <li key={idx} className="flex gap-2">
-          <span className="mt-1.5 w-1 h-1 rounded-full bg-accent flex-shrink-0" />
+          <span className="mt-1.5 w-1 h-1 rounded-full bg-accent/60 flex-shrink-0" />
           <span>{detail}</span>
         </li>
       ))}
@@ -105,11 +105,9 @@ const Timeline = () => {
       {/* Header */}
       <div className="mb-10 max-w-xl scroll-reveal">
         <p className="section-label mb-2">Background</p>
-        <h2 className="section-title">
-          Experience &amp; Education
-        </h2>
+        <h2 className="section-title">Experience &amp; Education</h2>
         <p className="text-text-secondary text-sm mt-2 leading-relaxed">
-          Professional internships, freelance projects, and academic education in Computer Engineering.
+          Internships, freelance work, and academic background in Computer Engineering.
         </p>
       </div>
 

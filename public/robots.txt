@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sarveshkshatriya.vercel.app/sitemap.xml

@@ -1,5 +1,7 @@
 import person from "../../assets/images/person2.webp";
 import useScrollReveal from "../../hooks/useScrollReveal";
+import { Link as ScrollLink } from "react-scroll";
+import { RESUME_PATH } from "../../constants/resume";
 
 const GitHubIcon = () => (
   <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
@@ -13,6 +15,18 @@ const LinkedInIcon = () => (
   </svg>
 );
 
+const ArrowIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+);
+
+const ExternalLinkIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+  </svg>
+);
+
 const Introduction = () => {
   const sectionRef = useScrollReveal();
 
@@ -23,78 +37,109 @@ const Introduction = () => {
       className="relative min-h-[90vh] flex items-center px-4 sm:px-6"
       aria-label="Hero section"
     >
-      <div className="content w-full pt-28 pb-16 relative z-10">
-        <div className="flex max-lg:flex-col-reverse items-center justify-between gap-12 lg:gap-16">
+      <div className="w-full pt-20 pb-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
 
           {/* ── LEFT CONTENT ── */}
-          <div className="w-full lg:max-w-[58%] flex flex-col max-lg:items-center max-lg:text-center scroll-reveal-left">
+          <div className="w-full lg:max-w-[58%] scroll-reveal-left">
 
-            {/* Sub-header badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-border bg-bg-secondary mb-6 text-xs text-text-secondary font-mono">
-              Computer Engineering Student &bull; SPPU, Pune
+            {/* Status indicator */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-bg-secondary border border-border mb-6">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-xs text-text-secondary font-medium">Available for opportunities</span>
             </div>
 
-            {/* Heading */}
-            <h1 className="font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight">
+            {/* Name */}
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.08] tracking-tight mb-4">
               Sarvesh Kshatriya
             </h1>
 
-            <p className="text-base sm:text-lg text-accent-highlight font-semibold mt-2">
-              Full-Stack Web Developer &amp; Data Scientist / Data Engineer
+            {/* Role subtitle */}
+            <h2 className="text-lg sm:text-xl font-display font-semibold text-accent mb-4">
+              Data Engineer &amp; Software Developer
+            </h2>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-xl mb-8">
+              Computer Engineering student building end-to-end data pipelines, analytics systems,
+              machine learning workflows, and modern web applications. Focused on scalable architectures
+              and turning raw data into reliable, production-ready systems.
             </p>
 
-            {/* Resume Summary */}
-            <p className="mt-5 text-sm sm:text-base text-text-secondary font-normal leading-relaxed max-w-xl">
-              Experienced in developing full-stack web applications, analytics dashboards, database-driven systems, and cloud-based data engineering solutions using React.js, Node.js, Python, SQL, Snowflake, dbt, Power BI, and AWS.
-            </p>
-
-            {/* CTA row */}
+            {/* Primary CTAs */}
             <div className="flex flex-wrap gap-3 mt-8">
+              <ScrollLink
+                to="portfolio"
+                smooth
+                duration={800}
+                offset={-80}
+                className="btn-primary cursor-pointer"
+                aria-label="View projects"
+              >
+                View Projects
+                <ArrowIcon />
+              </ScrollLink>
+
+              <a
+                href={RESUME_PATH}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                aria-label="View resume in a new tab"
+              >
+                View Resume
+                <ExternalLinkIcon />
+              </a>
+            </div>
+
+            {/* Secondary links */}
+            <div className="flex flex-wrap items-center gap-3 mt-5">
               <a
                 href="https://github.com/sarvesh-ksh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary"
+                className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-text-primary transition-colors"
+                aria-label="GitHub profile"
               >
                 <GitHubIcon />
                 GitHub
               </a>
+              <span className="text-border text-xs">·</span>
               <a
                 href="https://www.linkedin.com/in/kshatriya-sarvesh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary"
+                className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-text-primary transition-colors"
+                aria-label="LinkedIn profile"
               >
                 <LinkedInIcon />
                 LinkedIn
               </a>
             </div>
 
-            {/* Quick Skills summary strip */}
+            {/* Tech strip */}
             <div className="mt-10 pt-6 border-t border-border flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-text-muted">
-              <span className="font-semibold text-text-secondary">Core Tech:</span>
-              <span>React.js</span>
-              <span>&bull;</span>
-              <span>Node.js</span>
-              <span>&bull;</span>
+              <span className="font-semibold text-text-secondary">Stack:</span>
               <span>Python</span>
-              <span>&bull;</span>
+              <span>·</span>
               <span>SQL</span>
-              <span>&bull;</span>
+              <span>·</span>
               <span>Snowflake</span>
-              <span>&bull;</span>
-              <span>Power BI</span>
-              <span>&bull;</span>
+              <span>·</span>
+              <span>dbt</span>
+              <span>·</span>
               <span>AWS</span>
+              <span>·</span>
+              <span>React</span>
             </div>
           </div>
 
           {/* ── RIGHT IMAGE ── */}
-          <div className="w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[34%] max-lg:mx-auto scroll-reveal-right">
+          <div className="w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[33%] max-lg:mx-auto scroll-reveal-right">
             <div className="relative rounded-xl overflow-hidden border border-border aspect-[4/5] bg-bg-secondary">
               <img
                 src={person}
-                alt="Sarvesh Kshatriya"
+                alt="Sarvesh Kshatriya — Data Engineer & Software Developer"
                 className="w-full h-full object-cover object-top"
                 loading="eager"
                 decoding="async"

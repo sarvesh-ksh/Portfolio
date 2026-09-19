@@ -1,7 +1,6 @@
 import {
   faEnvelope,
   faLocationDot,
-  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import Address from "./Address";
 import Form from "./Form";
@@ -20,12 +19,6 @@ const addressData = [
     description: "sarveshkshatriya545@gmail.com",
     href: "mailto:sarveshkshatriya545@gmail.com",
   },
-  {
-    icon: faPhone,
-    title: "Phone",
-    description: "+91 9763947499",
-    href: "tel:+919763947499",
-  },
 ];
 
 const Contact = () => {
@@ -39,7 +32,7 @@ const Contact = () => {
           Contact Me
         </h2>
         <p className="text-text-secondary text-sm mt-2 leading-relaxed">
-          Open to full-stack web development, data engineering, and data science opportunities. Feel free to send a message or reach out directly.
+          Open to data engineering, software development, and analytics roles or collaborations. Feel free to send a message or reach out directly.
         </p>
       </div>
 

@@ -1,12 +1,8 @@
 import Introduction from "../components/introduction/Introduction";
 import Profile from "../components/profile/Profile";
 import Skills from "../components/skills/Skills";
-import WorkProcess from "../components/workProcess/WorkProcess";
 import Timeline from "../components/timeline/Timeline";
 import Portfolio from "../components/portfolio/Portfolio";
-import Achievements from "../components/achievements/Achievements";
-import WorkTogether from "../components/workTogether/WorkTogether";
-import Profession from "../components/profession/Profession";
 import Contact from "../components/contact/Contact";
 
 const Home = () => {
@@ -25,38 +21,18 @@ const Home = () => {
         <Skills />
       </div>
 
-      {/* Workflow */}
-      <div className="section-gradient">
-        <WorkProcess />
-      </div>
-
       {/* Timeline (Experience & Education) */}
-      <div className="section-dark">
+      <div className="section-gradient">
         <Timeline />
       </div>
 
       {/* Projects */}
-      <div className="section-gradient">
+      <div className="section-dark">
         <Portfolio />
       </div>
 
-      {/* Achievements */}
-      <div className="section-dark">
-        <Achievements />
-      </div>
-
-      {/* CTA */}
-      <div className="cta-bg">
-        <WorkTogether />
-      </div>
-
-      {/* Services */}
-      <div className="section-gradient">
-        <Profession />
-      </div>
-
       {/* Contact */}
-      <div className="section-dark">
+      <div className="section-gradient">
         <Contact />
       </div>
     </div>

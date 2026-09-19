@@ -3,52 +3,27 @@ import useScrollReveal from "../../hooks/useScrollReveal";
 const skillCategories = [
   {
     id: 1,
-    title: "Web Development",
-    skills: [
-      "HTML5", "CSS3", "JavaScript", "React.js", "Node.js", "Express.js", "REST APIs", "MERN Stack",
-    ],
+    title: "Data Engineering",
+    description: "Pipelines, warehousing, transformation",
+    skills: ["Python", "SQL", "Snowflake", "dbt", "AWS S3", "ETL/ELT", "Data Modeling", "Data Warehousing"],
   },
   {
     id: 2,
-    title: "Cloud & Data Engineering",
-    skills: [
-      "AWS", "AWS S3", "Snowflake", "dbt", "ETL/ELT Pipelines", "Data Warehousing", "Data Modeling",
-    ],
+    title: "Data Science & ML",
+    description: "Analysis, modeling, insights",
+    skills: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "EDA", "Feature Engineering", "Machine Learning"],
   },
   {
     id: 3,
-    title: "Databases & Storage",
-    skills: [
-      "MongoDB", "MySQL", "Snowflake", "SQL",
-    ],
+    title: "Software Development",
+    description: "Web applications, APIs, databases",
+    skills: ["React.js", "JavaScript", "Node.js", "Express.js", "MongoDB", "MySQL", "REST APIs", "HTML5 / CSS3"],
   },
   {
     id: 4,
-    title: "Programming Languages",
-    skills: [
-      "Python", "SQL", "C++", "Java", "JavaScript",
-    ],
-  },
-  {
-    id: 5,
-    title: "Data Analytics & Visualization",
-    skills: [
-      "Advanced Excel", "Power BI", "DAX", "Power Query", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Tableau",
-    ],
-  },
-  {
-    id: 6,
-    title: "Machine Learning & Analytics",
-    skills: [
-      "Scikit-Learn", "Random Forest", "Predictive Analytics", "Feature Engineering", "EDA", "Data Cleaning",
-    ],
-  },
-  {
-    id: 7,
-    title: "Tools & Core Concepts",
-    skills: [
-      "Git", "GitHub", "VS Code", "Postman", "Docker", "Linux", "DSA", "OOP", "DBMS", "Computer Networks", "Software Engineering",
-    ],
+    title: "Analytics & BI",
+    description: "Dashboards, reporting, insights",
+    skills: ["Power BI", "DAX", "Power Query", "Advanced Excel", "Pivot Tables"],
   },
 ];
 
@@ -61,24 +36,22 @@ const Skills = () => {
       {/* Header */}
       <div className="mb-10 max-w-xl scroll-reveal">
         <p className="section-label mb-2">Technical Proficiency</p>
-        <h2 className="section-title">
-          Technical Skills
-        </h2>
+        <h2 className="section-title">Skills</h2>
         <p className="text-text-secondary text-sm mt-2 leading-relaxed">
-          Comprehensive toolkit across web development, cloud &amp; data engineering, databases, programming, analytics, and machine learning.
+          Technologies I use regularly, organized by area. Each is backed by real project or internship work.
         </p>
       </div>
 
-      {/* Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* 2x2 grid on desktop, stacked on mobile */}
+      <div className="grid md:grid-cols-2 gap-4">
         {skillCategories.map((cat, i) => (
           <div
             key={cat.id}
-            className={`card p-5 flex flex-col scroll-reveal-scale stagger-${(i % 3) + 1}`}
+            className={`card p-5 flex flex-col scroll-reveal stagger-${(i % 4) + 1}`}
           >
-            <div className="flex items-center justify-between mb-3 pb-2 border-b border-border">
+            <div className="mb-3 pb-2 border-b border-border">
               <h3 className="text-sm font-semibold text-text-primary">{cat.title}</h3>
-              <span className="text-[11px] text-text-muted font-mono">{cat.skills.length}</span>
+              <p className="text-[11px] text-text-muted mt-0.5">{cat.description}</p>
             </div>
 
             <div className="flex flex-wrap gap-1.5 mt-1">
@@ -89,6 +62,17 @@ const Skills = () => {
           </div>
         ))}
       </div>
+
+      {/* Additional tools row */}
+      <div className="mt-5 card p-4 scroll-reveal">
+        <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">Tools & Concepts</p>
+        <div className="flex flex-wrap gap-1.5">
+          {["Git", "GitHub", "VS Code", "Postman", "Linux", "DSA", "OOP", "DBMS", "Computer Networks", "C++"].map((tool) => (
+            <span key={tool} className="skill-chip">{tool}</span>
+          ))}
+        </div>
+      </div>
+
     </section>
   );
 };

@@ -13,10 +13,10 @@ const Profile = () => {
       className="px-4 sm:px-6 py-16 md:py-24"
       aria-label="About section"
     >
-      <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14 xl:gap-16">
+      <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16 xl:gap-20">
 
         {/* ── LEFT: Photo + Socials ── */}
-        <div className="flex-shrink-0 flex flex-col items-center lg:items-start scroll-reveal-left">
+        <div className="flex-shrink-0 flex flex-col items-center lg:items-start scroll-reveal-left mx-auto lg:mx-0">
           <div className="relative w-48 sm:w-56 lg:w-60 rounded-xl overflow-hidden border border-border bg-bg-secondary">
             <img
               src={person}
@@ -31,49 +31,60 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* ── RIGHT: Resume Details ── */}
+        {/* ── RIGHT: Content ── */}
         <div className="w-full scroll-reveal-right max-lg:text-center">
 
           <p className="section-label mb-2">About Me</p>
 
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-text-primary leading-tight">
-            Computer Engineering Student &amp; Developer
+            Building Systems That Turn Data Into Decisions
           </h2>
 
-          <div className="mt-4 space-y-3 text-sm text-text-secondary leading-relaxed max-w-2xl max-lg:mx-auto">
+          <div className="mt-5 space-y-4 text-sm text-text-secondary leading-relaxed max-w-2xl max-lg:mx-auto">
             <p>
-              I am currently pursuing my <strong>B.E. in Computer Engineering at Savitribai Phule Pune University (SPPU)</strong> in Pune, Maharashtra, maintaining a <strong>9.29 CGPA</strong>. Prior to my degree, I completed my <strong>Diploma in Computer Engineering from MSBTE</strong> in Nashik with <strong>82.11%</strong>.
+              I&apos;m a Computer Engineering student at{" "}
+              <strong className="text-text-primary">Savitribai Phule Pune University (SPPU)</strong>{" "}
+              with a current CGPA of{" "}
+              <strong className="text-text-primary">9.19</strong>.
+              My work sits at the intersection of data engineering and software development —
+              I build pipelines that move and transform data at scale, and the applications
+              that put that data to practical use.
             </p>
             <p>
-              My expertise covers full-stack web development (React.js, Node.js, Express.js, MongoDB, MySQL), data analytics (Power BI, DAX, Excel, Pandas, NumPy), and cloud/data engineering pipelines (AWS, Snowflake, dbt).
+              On the data side I work with Python, SQL, Snowflake, dbt, and AWS S3 to build
+              ETL/ELT workflows and data warehouse models. I&apos;m comfortable working across
+              the full layer — from raw ingestion through transformation, modeling,
+              feature engineering, and into ML or BI tooling like Power BI.
+            </p>
+            <p>
+              On the software side I&apos;ve built full-stack web applications using React,
+              Node.js, Express, and MongoDB. I&apos;m interested in work where both of these
+              areas connect — systems where good engineering on the data side directly
+              produces something useful.
             </p>
           </div>
 
-          {/* Key Quick Facts Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 max-w-xl max-lg:mx-auto text-left">
+          {/* Quick facts */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-7 max-w-xl max-lg:mx-auto text-left">
+            <div className="card p-3">
+              <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">Degree</p>
+              <p className="text-xs text-text-primary font-medium mt-0.5">B.E. Computer Engineering</p>
+            </div>
+            <div className="card p-3">
+              <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">CGPA</p>
+              <p className="text-xs text-text-primary font-medium mt-0.5">9.19 / 10</p>
+            </div>
             <div className="card p-3">
               <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">Location</p>
               <p className="text-xs text-text-primary font-medium mt-0.5">Pune, Maharashtra</p>
             </div>
-
-            <div className="card p-3">
-              <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">Email</p>
-              <a href="mailto:sarveshkshatriya545@gmail.com" className="text-xs text-accent hover:underline font-medium mt-0.5 block truncate">
-                sarveshkshatriya545@gmail.com
-              </a>
-            </div>
-
-            <div className="card p-3">
-              <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">Languages</p>
-              <p className="text-xs text-text-primary font-medium mt-0.5">English, Hindi, Marathi</p>
-            </div>
           </div>
 
-          {/* Action buttons */}
+          {/* Actions */}
           <div className="flex flex-wrap gap-3 mt-7 max-lg:justify-center">
             <ScrollLink
               to="portfolio"
-              smooth
+              smooth={true}
               duration={800}
               offset={-80}
               className="btn-primary cursor-pointer"
@@ -90,6 +101,7 @@ const Profile = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
+              aria-label="View LinkedIn profile"
             >
               LinkedIn Profile
             </a>
