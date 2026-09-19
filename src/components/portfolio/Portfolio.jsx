@@ -142,7 +142,7 @@ const featuredProject = {
     "Built an end-to-end data engineering and machine learning pipeline to process 6.3M+ financial transactions. The system ingests raw CSV data into AWS S3, loads it into Snowflake, and runs two-stage dbt transformations (Silver for cleaning and validation, Gold for aggregated analytical models). Python handles feature engineering on the Gold layer, and a Scikit-learn classification model identifies fraudulent patterns. Final results are visualized in a Power BI fraud dashboard.",
   tech: ["Python", "SQL", "AWS S3", "Snowflake", "dbt", "Scikit-learn", "Power BI"],
   scale: "6.3M+ transaction records",
-  link: "https://github.com/sarvesh-ksh/Fraud-Prediction-System",
+  link: "https://github.com/sarvesh-ksh/Fraud-Prediction-Sys",
 };
 
 const gridProjects = [
